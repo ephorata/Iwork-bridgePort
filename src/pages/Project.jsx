@@ -1,71 +1,106 @@
+import { Route, Routes, useParams } from "react-router-dom"
+import { useDispatch, useSelector } from "react-redux"
+
 import styled from "@emotion/styled"
-import { IconButton, Typography } from "@mui/material"
+import { Button, IconButton, TextField, Typography } from "@mui/material"
 import { Box } from "@mui/system"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import MaterialLayout from "../layout/MaterialLayout"
 
 import ShareIcon from "@mui/icons-material/Share"
 import DeleteIcon from "@mui/icons-material/Delete"
 import EditIcon from "@mui/icons-material/Edit"
+import CheckIcon from "@mui/icons-material/Check"
+import CloseIcon from "@mui/icons-material/Close"
+
+import { deleteProject, getProject } from "../features/projectSlice"
 import { StyledPaper } from "./ProjectList"
 import UserStory from "../components/UserStory"
 import Scenarios from "../components/Scenarios"
-import { useDispatch, useSelector } from "react-redux"
-import { deleteProject, getProject } from "../features/projectSlice"
-import { useParams } from "react-router-dom"
+import AddScenario from "./AddScenario"
 
 const SubHeader = styled(Box)(({ theme }) => ({
   display: "flex",
   justifyContent: "space-between",
   marginTop: theme.spacing(4),
   marginBottom: theme.spacing(4),
-
 }))
 
 const Project = () => {
   const projects = useSelector(state => state.project)
+  const [edit, setEdit] = useState(false)
   const dispatch = useDispatch()
   const [loading, setLoading] = useState(false)
-  const {id} = useParams()
-  
+  const { id } = useParams()
+
   const project = projects.find(project => project.id == id)
 
+  const [projectTitle, setProjectTitle] = useState(project.title)
+
   const handleDelete = () => {
-      dispatch(deleteProject(id))
+    dispatch(deleteProject(id))
+  }
+  const confirmEdit = () => {
+    setEdit(false)
+    // dispatch(editProject({id: id,title: projectTitle}))
+  }
+  const discardEdit = () => {
+    setEdit(false)
+    setProjectTitle(project.title)
+  }
+  const toggleEdit = () => {
+    setEdit(() => !edit)
   }
   useEffect(() => {
     try {
-      
-    }catch(err){
-      console.log(err);
+    } catch (err) {
+      console.log(err)
     }
-
   }, [])
-  
-  console.log(project)
-  return (
-    <MaterialLayout>
-      <SubHeader>
-        <Typography variant="h5"> {project.title}</Typography>
-        <Box>
-          <IconButton aria-label="Edit Project">
-            <EditIcon />
-          </IconButton>
-          <IconButton aria-label="Share Project">
-            <ShareIcon />
-          </IconButton>
-          <IconButton aria-label="Delete Project">
-            <DeleteIcon onClick={handleDelete} />
-          </IconButton>
-        </Box>
-      </SubHeader>
-      <UserStory userStory={project.userStory} />
-      <Box sx={{ marginTop:{xs:'15%',md:"5%"}}}>
-      <Scenarios />
 
-      </Box>
-      
-    </MaterialLayout>
+  return (
+    <>
+      <MaterialLayout>
+        <SubHeader>
+          {!edit && <Typography variant="h5"> {projectTitle}</Typography>}
+          {edit && (
+            <Box>
+              <input
+                style={{ padding: "10px 15px" }}
+                label="Edit"
+                value={projectTitle}
+                onChange={e => setProjectTitle(e.target.value)}
+              />
+              <Box component={"div"}>
+                <IconButton onClick={confirmEdit}>
+                  <CheckIcon />
+                </IconButton>
+                <IconButton onClick={discardEdit}>
+                  <CloseIcon />
+                </IconButton>
+              </Box>
+            </Box>
+          )}
+
+          <Box >
+            <IconButton onClick={toggleEdit} aria-label="Edit Project">
+              <EditIcon />
+            </IconButton>
+            <IconButton aria-label="Share Project">
+              <ShareIcon />
+            </IconButton>
+            <IconButton aria-label="Delete Project">
+              <DeleteIcon />
+            </IconButton>
+          </Box>
+        </SubHeader>
+        <UserStory userStory={project.userStory} />
+        <Box>
+          <Scenarios />
+        </Box>
+      </MaterialLayout>
+   
+    </>
   )
 }
 

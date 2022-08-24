@@ -42,15 +42,14 @@ const Header = () => {
 
   return (
     <AppBar position="static">
-      <Toolbar>
+      <Toolbar sx={{justifyContent:"space-between"}}>
         <IconButton  onClick={handleBack}>
           <Typography variant="h6" component="div" sx={{display:'flex', justifyContent:'space-between',alignItems: 'center', flexGrow: 1,color:'#fff' }}>
-            {prevPathName} {!isHome && <ArrowBackIosIcon sx={{ml:1}}/>}
+          {!isHome && <ArrowBackIosIcon sx={{ml:1}}/>}  {prevPathName} 
           </Typography>
         </IconButton>
-        <IconButton>
+        
           <Avatar />
-        </IconButton>
       </Toolbar>
     </AppBar>
   )

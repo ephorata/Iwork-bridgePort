@@ -1,4 +1,4 @@
-import { CssBaseline } from "@mui/material"
+import './index.css'
 import ReactDOM from "react-dom"
 import { Provider } from "react-redux"
 import { BrowserRouter, Route, Routes } from "react-router-dom"

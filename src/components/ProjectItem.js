@@ -23,7 +23,7 @@ const ProjectItem = (props) => {
       <ListItem >
         <ListItemButton to={`/project/${props.id}` } component={Link}>
           <ListItemText><Typography sx={{fontSize:{xs:'15px',md:"25px"},}} variant="h6">{props.title}</Typography></ListItemText>
-          <ListItemText><Typography  sx={{ml:{xs:1, sm:0}}} variant="body2">{props.stories}Stories</Typography></ListItemText>
+          <ListItemText><Typography  sx={{ml:{xs:1, sm:0}}}  variant="body2">{props.stories} Stories</Typography></ListItemText>
         </ListItemButton>
         <IconButton  aria-label="Share Icon">
           <ShareIcon />

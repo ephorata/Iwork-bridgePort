@@ -10,12 +10,17 @@ import {
 
 import Header from "./Header"
 
-import { blue, blueGrey,   } from "@mui/material/colors"
+import { blue, blueGrey } from "@mui/material/colors"
 
 let theme = createTheme({
   palette: {
-    primary: blue,
-    secondary: blueGrey,
+    primary: {
+      main: "#0a255c",
+    },
+    secondary: {
+      light: "#0066ff",
+      main: "#0066ff",
+    },
   },
 })
 
@@ -34,16 +39,13 @@ const StyledDiv = styled("div")(({ theme }) => ({
   color: theme.palette.text.primary,
 }))
 
-
 export default function MaterialLayout(props) {
   const { children } = props
   return (
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <Header />
-      <StyledDiv>
-      {children}
-      </StyledDiv>
+      <StyledDiv>{children}</StyledDiv>
     </ThemeProvider>
   )
 }
