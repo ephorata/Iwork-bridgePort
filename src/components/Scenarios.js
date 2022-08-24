@@ -27,7 +27,7 @@ export const StyledPaper = styled(Paper)(({ theme }) => ({
 
 const Scenarios = () => {
   return (
-    <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',mt:3, width:{xs:'100%', md:'50%'}}}>
+    <Box sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',mt:3, width:{xs:'100%'}}}>
       <Typography variant="h6" sx={{color:'#aaa'}} mb={2}>
         SCENARIOS
       </Typography>

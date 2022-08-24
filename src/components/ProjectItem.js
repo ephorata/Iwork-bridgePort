@@ -1,5 +1,6 @@
 import React from "react"
 import {
+  Box,
   IconButton,
   List,
   ListItem,
@@ -21,9 +22,11 @@ const ProjectItem = (props) => {
   return (
     <List>
       <ListItem >
-        <ListItemButton to={`/project/${props.id}` } component={Link}>
-          <ListItemText><Typography sx={{fontSize:{xs:'15px',md:"25px"},}} variant="h6">{props.title}</Typography></ListItemText>
-          <ListItemText><Typography  sx={{ml:{xs:1, sm:0}}}  variant="body2">{props.stories} Stories</Typography></ListItemText>
+        <ListItemButton  to={`/project/${props.id}` } component={Link}>
+          <Box sx={{display: "flex", flexDirection:'row',alignItems: 'center', justifyContent: "space-between",width:'100%'}}>
+          <ListItemText sx={{width:'20rem'}}><Typography sx={{fontSize:{xs:'15px',md:"25px"},}} variant="h6">{props.title}</Typography></ListItemText>
+          <ListItemText><Typography  align="left" sx={{ml:{xs:1, sm:0}}}  variant="body2">{props.stories} Stories</Typography></ListItemText>
+          </Box>
         </ListItemButton>
         <IconButton  aria-label="Share Icon">
           <ShareIcon />

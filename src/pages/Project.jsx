@@ -13,7 +13,7 @@ import EditIcon from "@mui/icons-material/Edit"
 import CheckIcon from "@mui/icons-material/Check"
 import CloseIcon from "@mui/icons-material/Close"
 
-import { deleteProject, getProject } from "../features/projectSlice"
+import { deleteProject, editProject, getProject } from "../features/projectSlice"
 import { StyledPaper } from "./ProjectList"
 import UserStory from "../components/UserStory"
 import Scenarios from "../components/Scenarios"
@@ -42,7 +42,8 @@ const Project = () => {
   }
   const confirmEdit = () => {
     setEdit(false)
-    // dispatch(editProject({id: id,title: projectTitle}))
+    dispatch(editProject({id: id,title: projectTitle}))
+    console.log("successfully edit projectTitle")
   }
   const discardEdit = () => {
     setEdit(false)
@@ -94,8 +95,8 @@ const Project = () => {
             </IconButton>
           </Box>
         </SubHeader>
+        <Box sx={{display: {xs:'block',lg:'flex'},gap:4, justifyContent:'space-between'}}>
         <UserStory userStory={project.userStory} />
-        <Box>
           <Scenarios />
         </Box>
       </MaterialLayout>
