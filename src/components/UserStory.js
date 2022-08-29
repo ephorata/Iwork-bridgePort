@@ -32,7 +32,7 @@ const UserStory = ({userStory}) => {
         <Typography variant="body1">
           <Box display="inline" fontWeight="fontWeightBold">
             {" "}
-            AS ..{" "}
+            As ..{" "}
           </Box>
           {userStory.as}
         </Typography>

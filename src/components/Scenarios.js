@@ -36,7 +36,7 @@ const Scenarios = () => {
           You haven't created any scenarios yet.
         </Typography>
         <Button component={Link} to="add-scenarios" variant="outlined">
-                Add Scenarios
+              Enter Main Scenario
           </Button>
       </StyledPaper>
     </Box>

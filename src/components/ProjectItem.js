@@ -20,13 +20,13 @@ const ProjectItem = (props) => {
     console.log("deleted" ,props.id)
 }
   return (
-    <List>
-      <ListItem >
-        <ListItemButton  to={`/project/${props.id}` } component={Link}>
-          <Box sx={{display: "flex", flexDirection:'row',alignItems: 'center', justifyContent: "space-between",width:'100%'}}>
-          <ListItemText sx={{width:'20rem'}}><Typography sx={{fontSize:{xs:'15px',md:"25px"},}} variant="h6">{props.title}</Typography></ListItemText>
-          <ListItemText><Typography  align="left" sx={{ml:{xs:1, sm:0}}}  variant="body2">{props.stories} Stories</Typography></ListItemText>
-          </Box>
+    <List sx={{padding:'2px'}}>
+      <ListItem  sx={{padding:'2px'}} >
+        <ListItemButton sx={{display:'flex', justifyContent: 'space-between'}}  to={`/project/${props.id}` } component={Link}>
+           
+          <ListItemText sx={{flex:1}} ><Typography sx={{fontSize:{xs:'16px',md:"25px"},}} variant="h6">{props.title}</Typography></ListItemText>
+          <ListItemText sx={{flex:.8}} ><Typography  variant="body2">{props.stories} Scenarios</Typography></ListItemText>
+          
         </ListItemButton>
         <IconButton  aria-label="Share Icon">
           <ShareIcon />

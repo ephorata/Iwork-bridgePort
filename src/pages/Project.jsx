@@ -33,7 +33,7 @@ const Project = () => {
   const [loading, setLoading] = useState(false)
   const { id } = useParams()
 
-  const project = projects.find(project => project.id == id)
+  const project = projects.find(project => project.id === parseInt(id))
 
   const [projectTitle, setProjectTitle] = useState(project.title)
 
@@ -65,22 +65,22 @@ const Project = () => {
         <SubHeader>
           {!edit && <Typography variant="h5"> {projectTitle}</Typography>}
           {edit && (
-            <Box>
-              <input
-                style={{ padding: "10px 15px" }}
-                label="Edit"
-                value={projectTitle}
-                onChange={e => setProjectTitle(e.target.value)}
-              />
-              <Box component={"div"}>
-                <IconButton onClick={confirmEdit}>
-                  <CheckIcon />
-                </IconButton>
-                <IconButton onClick={discardEdit}>
-                  <CloseIcon />
-                </IconButton>
-              </Box>
+            <Box sx={{display:"flex"}}>
+            <input
+              style={{ padding: "10px 15px" , borderRadius:'2rem'}}
+              label="Edit"
+              value={projectTitle}
+              onChange={e => setProjectTitle(e.target.value)}
+            />
+            <Box component={"div"}>
+              <IconButton onClick={confirmEdit}>
+                <CheckIcon sx={{color:'green'}} />
+              </IconButton>
+              <IconButton onClick={discardEdit}>
+                <CloseIcon sx={{color:'red'}} />
+              </IconButton>
             </Box>
+          </Box>
           )}
 
           <Box >

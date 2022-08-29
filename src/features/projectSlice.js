@@ -21,6 +21,10 @@ const projectSlice = createSlice({
   name: "project",
   initialState,
   reducers: {
+    getProject(state,action){
+      return state = state.filter(project => project.id == action.payload.id)
+      
+    },
     editProject(state, action) {
       const projectIntex = state.findIndex(project => project.id == action.payload.id)
 
@@ -39,5 +43,5 @@ const projectSlice = createSlice({
   },
 })
 
-export const { editProject, deleteProject } = projectSlice.actions
+export const {getProject, editProject, deleteProject } = projectSlice.actions
 export default projectSlice.reducer
