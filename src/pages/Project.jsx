@@ -88,10 +88,10 @@ const Project = () => {
               <EditIcon />
             </IconButton>
             <IconButton aria-label="Share Project">
-              <ShareIcon />
+              <ShareIcon sx={{color:'#3996e3'}} />
             </IconButton>
             <IconButton aria-label="Delete Project">
-              <DeleteIcon />
+              <DeleteIcon sx={{color:'red'}} />
             </IconButton>
           </Box>
         </SubHeader>

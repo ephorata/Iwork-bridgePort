@@ -29,26 +29,26 @@ const UserStory = ({userStory}) => {
     <Box  sx={{display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start',mt:3, width:{xs:'100%',}}}>
     <Typography variant="h6" sx={{color:'#aaa'}} mb={2}>USER STORY</Typography>
       <StyledPaper >
-        <Typography variant="body1">
-          <Box display="inline" fontWeight="fontWeightBold">
+        <Typography sx={{display: 'flex', alignItems: 'flex-start',gap:1 ,width:{xs:'100%',md:'50%'}}} variant="body1">
+          <Box sx={{flex:{xs:'.4', md:'.3'}}} display="inline" fontWeight="fontWeightBold">
             {" "}
             As ..{" "}
           </Box>
-          {userStory.as}
+          <span style={{marginLeft:'10px',flex:1}}>{userStory.as}</span>
         </Typography>
-        <Typography variant="body1">
-          <Box display="inline" fontWeight="fontWeightBold">
+        <Typography sx={{display: 'flex', alignItems: 'flex-start',gap:2 ,width:{xs:'100%',md:'50%'}}} variant="body1">
+          <Box sx={{flex:{xs:'.4', md:'.3'}}} display="inline" fontWeight="fontWeightBold">
             {" "}
             I want ..{" "}
           </Box>
-        {userStory.iWant}
+          <span style={{marginLeft:'10px',flex:1}}>{userStory.iWant}</span>
         </Typography>
-        <Typography variant="body1">
-          <Box display="inline" fontWeight="fontWeightBold">
+        <Typography sx={{display: 'flex', alignItems: 'flex-start',gap:2 ,width:{xs:'100%',md:'50%'}}} variant="body1">
+          <Box sx={{flex:{xs:'.4', md:'.3'}}} display="inline" fontWeight="fontWeightBold">
             {" "}
            So That ..{" "}
           </Box>
-          {userStory.so}
+          <span style={{marginLeft:'10px',flex:1}}>{userStory.so}</span>
         </Typography>
       </StyledPaper>
     </Box>

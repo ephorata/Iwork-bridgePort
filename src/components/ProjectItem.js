@@ -29,10 +29,10 @@ const ProjectItem = (props) => {
           
         </ListItemButton>
         <IconButton  aria-label="Share Icon">
-          <ShareIcon />
+          <ShareIcon sx={{color: '#3996e3'}}  />
         </IconButton>
         <IconButton onClick={handleDelete} aria-label="Delete Icon">
-          <DeleteIcon  />
+          <DeleteIcon sx={{color: 'red'}}  />
         </IconButton>
       </ListItem>
     </List>

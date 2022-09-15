@@ -10,7 +10,7 @@ import {
 import React, { useMemo, useState } from "react"
 import MaterialLayout from "../layout/MaterialLayout"
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos"
-import { Navigate, useNavigate, useParams } from "react-router-dom"
+import { Link, Navigate, useNavigate, useParams } from "react-router-dom"
 import ContentPasteIcon from "@mui/icons-material/ContentPaste"
 import { useDispatch, useSelector } from "react-redux"
 import { editProject } from "../features/projectSlice"
@@ -116,8 +116,11 @@ const AddScenario = () => {
           </Typography>
           <StyledTextArea placeholder="Enter you description here " />
           <Button
-            sx={{ display: "block", width: "100%", mt: 2 }}
+            sx={{ display: "block", width: "100%", mt: 2,textAlign: "center"}}
             variant="outlined"
+            component={Link}
+            to={"/next-page"}
+            
           >
             Continue
           </Button>
